@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>학생 프로필 등록 · 기본 HTML</title>
 </head>
+
 <body>
     <div class="container">
-        <nav aria-label="페이지 이동"><a href="index.html">과제 홈</a> <a href="form1_css.html">CSS 적용 보기</a></nav>
+        <nav aria-label="페이지 이동">
+            <a href="index.html">과제 홈</a>
+            <a href="form1_css.html">CSS 적용 보기</a>
+        </nav>
         <header>
             <p class="eyebrow">OPEN SOURCE STUDIO / FORM PRACTICE</p>
             <h1>학생 프로필 등록</h1>
             <p>나의 기본 정보와 관심 분야를 소개해 보세요.</p>
         </header>
+
         <main>
         <form id="profileForm">
             <p class="form-note">* 표시 항목은 필수입니다. 실제 개인정보 대신 예시 값을 입력하세요.</p>
             <fieldset>
                 <legend>01 기본 정보</legend>
                 <div class="fields">
-                    <div class="field">
+                    <div class = "field">
                         <label for="StudentName">이름 *</label>
-                        <input type="text" id="StudentName" name="studentName" placeholder="홍길동" maxlength="30" required>
+                        <input type="text" id="StudentName" name="studentName"
+                               placeholder="홍길동" maxlength="30"
+                               required>
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="StudentID">학번 *</label>
-                        <input type="text" id="StudentID" name="studentId" placeholder="22500000" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" title="학번은 숫자 8자리로 입력하세요." required>
+                        <input type="text" id = "StudentID" name = "studentId"
+                               placeholder="22500000" inputmode="numeric"
+                               pattern="[0-9]{8}" maxlength="8" title="학번은 숫자 8자리로 입력하세요." required>
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="phoneNumber">전화번호</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" title="010-1234-5678 형식으로 입력하세요.">
+                        <input type="tel" id="phoneNumber" name="phoneNumber"
+                               placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}"
+                               title="010-1234-5678 형식으로 입력하세요.">
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="email">이메일 *</label>
-                        <input type="email" id="email" name="email" placeholder="student@example.com" required>
+                        <input type="email" id="email" name="email"
+                               placeholder="student@example.com" required>
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="birth_day">생년월일</label>
-                        <input type="date" id="birth_day" name="birthday">
+                        <input type = "date" id="birth_day" name="birthday">
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="major">전공 *</label>
                         <select id="major" name="major" required>
                             <option value="">전공을 선택하세요</option>
@@ -56,7 +74,8 @@
                             </optgroup>
                         </select>
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="year">학년 *</label>
                         <select id="year" name="year" required>
                             <option value="">학년을 선택하세요</option>
@@ -66,39 +85,64 @@
                             <option value="4">4학년 이상</option>
                         </select>
                     </div>
-                    <div class="field">
+
+                    <div class = "field">
                         <label for="startDate">스터디 참여 가능일</label>
-                        <input type="date" id="startDate" name="startDate">
+                        <input type = "date" id="startDate" name="startDate">
                     </div>
                 </div>
             </fieldset>
+
             <fieldset>
                 <legend>02 관심 분야와 소개</legend>
                 <fieldset class="choice-group">
                     <legend>선호 연락 방법 *</legend>
                     <div class="choices">
-                        <label for="contactEmail"><input type="radio" id="contactEmail" name="contactMethod" value="email" required> 이메일</label>
-                        <label for="contactPhone"><input type="radio" id="contactPhone" name="contactMethod" value="phone"> 전화</label>
-                        <label for="contactText"><input type="radio" id="contactText" name="contactMethod" value="text"> 문자</label>
+                        <label for="contactEmail">
+                            <input type="radio" id="contactEmail" name="contactMethod"
+                                   value="email" required> 이메일
+                        </label>
+                        <label for="contactPhone">
+                            <input type="radio" id="contactPhone" name="contactMethod" value="phone"> 전화
+                        </label>
+                        <label for="contactText">
+                            <input type="radio" id="contactText" name="contactMethod" value="text"> 문자
+                        </label>
                     </div>
                 </fieldset>
+
                 <fieldset class="choice-group">
                     <legend>관심 분야 <span class="hint">여러 개 선택 가능</span></legend>
                     <div class="choices">
-                        <label for="interestWeb"><input type="checkbox" id="interestWeb" name="interests" value="web"> 웹 개발</label>
-                        <label for="interestAI"><input type="checkbox" id="interestAI" name="interests" value="ai"> 인공지능</label>
-                        <label for="interestApp"><input type="checkbox" id="interestApp" name="interests" value="app"> 앱 개발</label>
-                        <label for="interestDesign"><input type="checkbox" id="interestDesign" name="interests" value="design"> UI 디자인</label>
+                        <label for="interestWeb">
+                            <input type="checkbox" id="interestWeb" name="interests" value="web"> 웹 개발
+                        </label>
+                        <label for="interestAI">
+                            <input type="checkbox" id="interestAI" name="interests" value="ai"> 인공지능
+                        </label>
+                        <label for="interestApp">
+                            <input type="checkbox" id="interestApp" name="interests" value="app"> 앱 개발
+                        </label>
+                        <label for="interestDesign">
+                            <input type="checkbox" id="interestDesign" name="interests" value="design"> UI 디자인
+                        </label>
                     </div>
                 </fieldset>
-                <div class="field">
+
+                <div class = "field">
                     <label for="introduction">자기소개</label>
-                    <textarea id="introduction" name="introduction" rows="4" maxlength="300" placeholder="관심 분야나 이번 학기에 배우고 싶은 내용을 소개해 주세요." aria-describedby="introHint"></textarea>
+                    <textarea id="introduction" name="introduction" rows="4"
+                           maxlength="300" placeholder="관심 분야나 이번 학기에 배우고 싶은 내용을 소개해 주세요."
+                           aria-describedby="introHint"></textarea>
                     <small id="introHint" class="hint">최대 300자까지 입력할 수 있습니다.</small>
                 </div>
             </fieldset>
+
             <div class="confirmation">
-                <label for="confirmDemo"><input type="checkbox" id="confirmDemo" name="confirmDemo" value="yes" required> 학습용 폼이며 입력 내용이 저장되지 않는다는 점을 확인했습니다. *</label>
+                <label for="confirmDemo">
+                    <input type="checkbox" id="confirmDemo" name="confirmDemo"
+                           value="yes" required> 학습용 폼이며 입력 내용이 저장되지 않는다는 점을 확인했습니다. *
+                </label>
             </div>
             <div class="actions">
                 <button type="submit">입력 확인</button>
@@ -107,7 +151,7 @@
             <p id="result" role="status" aria-live="polite"></p>
         </form>
         </main>
-        <footer>Assignment 2-2 · HTML Form &amp; CSS · 자유주제 학습용 페이지</footer>
+        <footer>Assignment 2-2 · HTML Form </footer>
     </div>
     <script>
         // 브라우저 기본 유효성 검사를 통과한 뒤 확인 메시지만 표시합니다.
@@ -118,9 +162,11 @@
             event.preventDefault();
             result.textContent = '입력 형식을 확인했습니다. 학습용 폼이므로 내용은 저장되지 않습니다.';
         });
+
         form.addEventListener('reset', function () {
             result.textContent = '';
         });
+
         form.addEventListener('input', function () {
             result.textContent = '';
         });

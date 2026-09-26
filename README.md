@@ -2,107 +2,87 @@
 
 - 학번: 22500819
 - 주제: 학생 프로필 등록
-- 제작 방식: 수업에서 자유주제를 허용하여 클론 코딩 대신 직접 구성했습니다.
-- 클론 코딩 원본 URL: 해당 없음 (자유주제)
 
-## 페이지 구성
+이름, 학번, 연락처와 관심 분야를 입력하는 폼을 만들었습니다. 같은 입력 항목을 가진 두 페이지를 만들고, CSS 적용 전후를 비교할 수 있도록 구성했습니다.
 
-| 파일 | 내용 |
-| --- | --- |
-| `index.html` | 기본 HTML / CSS 적용 페이지로 이동하는 홈 |
-| `form1.html` | CSS 없이 Form 태그와 입력 요소를 연습하는 페이지 |
-| `form1_css.html` | 같은 Form 구조에 CSS를 적용한 페이지 |
-| `README.md` | 과제 설명, Weekly Review, Weekly Question |
 
-별도의 설치 없이 `index.html`을 브라우저에서 열면 됩니다.
-입력 확인 버튼은 브라우저 유효성 검사를 실행하고 안내 메시지를 표시합니다.
-실제 서버 제출, 개인정보 저장, 회원가입 기능은 구현하지 않았습니다. 예시 값으로 테스트합니다.
+## 파일 구성
+
+- [index.html](index.html): 두 실습 페이지로 이동하는 링크
+- [form1.html](form1.html): CSS를 적용하지 않은 기본 폼
+- [form1_css.html](form1_css.html): 같은 폼에 CSS를 적용한 페이지
+- [README.md](README.md): 과제 소개와 Weekly Review
+
 
 ## Weekly Review
 
-다음 내용은 코드 구현을 바탕으로 정리한 초안입니다. 제출 전 실제 학습 경험에 맞게 확인합니다.
+### 1. Key Learning
 
-### Key Learning
+1. **입력 목적에 맞는 Form 요소 사용**
+   이름에는 text, 날짜에는 date, 하나만 선택하는 항목에는 radio, 여러 개를 선택하는 항목에는 checkbox를 사용합니다. 선택지를 제공할 때는 select, 여러 줄을 입력받을 때는 textarea를 사용합니다.
 
-1. `label`의 `for`와 입력 요소의 `id`를 연결하면 라벨을 눌러 입력란으로 이동하거나 선택할 수 있습니다. `name`은 폼 데이터의 항목 이름을 정합니다.
-2. 같은 `name`의 radio는 하나만 선택할 수 있고, checkbox는 각각 독립적으로 선택할 수 있습니다. `required`, `type="email"`, `pattern` 등으로 브라우저 기본 유효성 검사를 사용할 수 있습니다.
-3. HTML은 입력 요소와 문서 구조를 정의하고 CSS는 색상, 여백, 크기, 배치 및 focus/hover 상태를 표현합니다. 같은 구조를 유지하면서 CSS 유무에 따른 차이를 비교할 수 있습니다.
+2. **입력 요소의 속성 구분**
+   id는 요소를 식별하고 label의 for와 연결할 때 사용합니다. name은 폼 데이터의 항목 이름입니다. required는 필수 입력을 지정하고, pattern은 입력 형식을 검사합니다. placeholder는 입력 예시를 보여 주지만 실제 입력값은 아닙니다.
 
-### Form Elements
+3. **HTML과 CSS의 역할 구분**
+   HTML로 입력 항목과 문서 구조를 만들고 CSS로 색상, 여백, 배치를 조정합니다. focus와 hover를 사용하면 입력란을 선택하거나 버튼에 마우스를 올렸을 때의 모습도 바꿀 수 있습니다.
 
-라디오·체크박스 선택지를 각각 세지 않아도 총 **12개 입력 항목**입니다.
+### 2. Form Elements
 
-| 번호 | 입력 항목 | 요소 / 속성 | 용도 |
-| --- | --- | --- | --- |
-| 1 | 이름 | `input type="text"` | 이름 입력, 필수 |
-| 2 | 학번 | `input type="text"`, `pattern`, `inputmode` | 8자리 숫자 입력, 필수 |
-| 3 | 전화번호 | `input type="tel"`, `pattern` | 하이픈을 포함한 전화번호 입력 |
-| 4 | 이메일 | `input type="email"` | 이메일 형식 확인, 필수 |
-| 5 | 생년월일 | `input type="date"` | 날짜 선택 |
-| 6 | 전공 | `select`, `option`, `optgroup` | 계열별 전공 선택, 필수 |
-| 7 | 학년 | `select` | 학년 선택, 필수 |
-| 8 | 스터디 참여 가능일 | `input type="date"` | 참여 가능 날짜 선택 |
-| 9 | 선호 연락 방법 | `input type="radio"` | 이메일·전화·문자 중 하나 선택, 필수 |
-| 10 | 관심 분야 | `input type="checkbox"` | 관심 분야 복수 선택 |
-| 11 | 자기소개 | `textarea`, `maxlength` | 여러 줄 텍스트 입력, 최대 300자 |
-| 12 | 학습용 폼 확인 | `input type="checkbox"` | 저장하지 않는 실습 폼임을 확인, 필수 |
+라디오 버튼과 체크박스의 개별 선택지를 하나씩 세지 않고, 입력 항목 기준으로 총 12개를 구성했습니다.
 
-추가로 `form`, `fieldset`, `legend`, `label`, 제출·초기화 `button`을 사용했습니다.
-필수 요소인 text, radio, checkbox, date, select, textarea를 모두 포함합니다.
+| 입력 항목 | 사용한 요소 | 용도 |
+| --- | --- | --- |
+| 이름 | input type="text" | 이름 입력 |
+| 학번 | input type="text" | 숫자 8자리 입력 |
+| 전화번호 | input type="tel" | 하이픈을 포함한 전화번호 입력 |
+| 이메일 | input type="email" | 이메일 형식으로 입력 |
+| 생년월일 | input type="date" | 날짜 선택 |
+| 전공 | select, option, optgroup | 계열별로 묶인 전공 선택 |
+| 학년 | select, option | 학년 선택 |
+| 스터디 참여 가능일 | input type="date" | 참여 가능한 날짜 선택 |
+| 선호 연락 방법 | input type="radio" | 이메일, 전화, 문자 중 하나 선택 |
+| 관심 분야 | input type="checkbox" | 관심 분야 여러 개 선택 |
+| 자기소개 | textarea | 여러 줄 입력, 최대 300자 |
+| 학습용 폼 확인 | input type="checkbox" | 입력 내용이 저장되지 않는다는 점 확인 |
 
-### HTML vs CSS
+관련 항목은 fieldset으로 묶고 legend로 제목을 붙였습니다. label은 각 입력 요소의 id와 연결했습니다. 버튼은 입력 확인용 submit과 초기화용 reset을 사용했습니다.
 
-두 페이지는 같은 Form 구조, 입력 항목, 유효성 검사 및 확인 동작을 사용합니다.
+### 3. HTML vs CSS
 
-- `form1.html`: 브라우저 기본 스타일로 태그 자체의 구조를 확인합니다.
-- `form1_css.html`: 내부 `<style>`에서 폼 카드, 입력란, select, textarea, button, label을 꾸밉니다.
-- `color`, `background-color`, `border`, `border-radius`, `padding`, `margin`, `width`, `display`를 사용합니다.
-- 기본 정보는 넓은 화면에서 2열, 560px 이하에서 1열로 배치합니다.
-- 입력란의 `:focus`, 버튼과 링크의 `:hover`, 키보드 조작을 위한 `:focus-visible`을 표시합니다.
+`form1.html`은 브라우저 기본 스타일을 사용합니다. `form1_css.html`은 같은 폼 구조에 내부 `<style>`로 CSS를 적용했습니다. 
 
-### Problem & Solution
+- color와 background-color로 글자색과 배경색을 지정했습니다.
+- border와 border-radius로 테두리와 둥근 모서리를 만들었습니다.
+- padding은 요소 안쪽 여백, margin은 바깥쪽 여백을 조절하는 데 사용했습니다.
+- width로 입력란의 너비를 정하고, Grid와 Flex로 항목을 배치했습니다.
+- 기본 정보는 두 열로 배치하고 화면 너비가 560px 이하이면 한 열로 바뀌도록 했습니다.
+- focus 상태에서는 입력란의 테두리를 강조하고, hover 상태에서는 버튼 색이 바뀌도록 했습니다.
 
-- 기존 생년월일 input 태그의 닫는 `>`와 `name`이 누락되어 있었습니다. 태그를 완성하고 `name="birthday"`를 지정했습니다.
-- 학번은 계산할 숫자가 아니라 고정 길이 식별자이므로 text 타입을 유지하고 `pattern="[0-9]{8}"`과 `inputmode="numeric"`을 적용했습니다.
-- 연락 방법을 하나만 고르도록 radio의 `name`을 통일하고, 관심 분야는 checkbox로 구성했습니다.
-- 학습용 폼에서 개인정보가 URL에 포함되는 기본 제출을 막기 위해 JavaScript의 `preventDefault()`를 사용했습니다. 검사를 통과하면 상태 메시지만 보여 줍니다.
-- 작은 화면에서도 읽기 쉽도록 CSS media query로 기본 정보를 1열로 바꿨습니다.
+두 페이지 모두 같은 입력 조건과 JavaScript를 사용하므로 입력 확인과 초기화 동작은 같습니다.
 
-### Reflection
+### 4. Problem & Solution
 
-구현을 통해 정리할 수 있는 점은 Form이 입력란을 나열하는 것뿐 아니라 라벨, 그룹, 입력 조건을 함께 설계하는 작업이라는 것입니다. 특히 radio의 name을 공유하는 방식과 label의 for를 연결하는 방식이 서로 다른 목적이라는 점을 구분할 수 있습니다.
+**학번을 숫자 8자리로 제한하는 방법**
+학번은 계산하는 숫자가 아닌 식별자이므로 text 타입을 사용했습니다. maxlength="8"로 길이를 제한하고 pattern="[0-9]{8}"로 숫자 8자리인지 검사하도록 했습니다. inputmode="numeric"은 모바일에서 숫자 키보드를 표시하도록 돕는 속성으로 사용했습니다.
 
-추가로 알아볼 질문: 실제 서버로 폼을 제출할 때 GET과 POST는 어떻게 다르며, 브라우저 검사 외에 서버 측 검사도 필요한 이유는 무엇일까요?
+**하나만 선택하는 항목과 여러 개 선택하는 항목의 구분**
+선호 연락 방법은 radio 버튼들의 name을 contactMethod로 통일했습니다. 관심 분야는 여러 항목을 동시에 고를 수 있도록 checkbox를 사용했습니다.
 
-## Weekly Question
+**학습용 폼의 제출 동작 처리**
+입력 형식을 확인한 뒤 실제 제출은 하지 않도록 submit 이벤트에서 preventDefault()를 사용했습니다. 검사에 통과하면 안내 문구를 표시하고, 입력을 수정하거나 초기화하면 이전 문구를 지우도록 했습니다.
 
-AI 생성 문제 초안입니다. 제출 전 내용을 확인하고 Google Form에 문제, 정답, 해설을 함께 입력합니다.
+### 5. Reflection
 
-### 문제 1 — 객관식
+이번 코드에서 중요하게 정리한 부분은 태그뿐 아니라 속성에 따라서도 폼의 동작이 달라진다는 점입니다. 같은 input이라도 type에 따라 입력 방식이 달라지고, radio는 같은 name으로 묶어야 하나만 선택할 수 있습니다.
 
-이메일·전화·문자 중 연락 방법을 **하나만** 선택하도록 radio 버튼 3개를 구성하려면 어떻게 해야 할까요?
+CSS에서는 class 이름만 붙이는 것으로 디자인이 적용되는 것은 아니라는 점을 확인할 수 있습니다. 예를 들어 container라는 이름을 붙였더라도, 그 클래스를 선택하는 CSS에 너비와 여백을 지정해야 가운데 배치됩니다.
 
-1. 세 버튼의 `id`를 모두 같게 지정한다.
-2. 세 버튼의 `name`을 같게 하고 `id`는 각각 다르게 지정한다.
-3. 세 버튼에 `checked`를 모두 지정한다.
-4. 세 버튼을 checkbox로 변경한다.
+앞으로는 입력한 내용을 실제 서버에 전달할 때 GET과 POST가 어떻게 다른지, 서버에서는 입력값을 어떻게 검사하고 저장하는지 더 공부하고 싶습니다.
 
-**정답: 2번**
 
-**해설:** 같은 form 안에서 동일한 name을 가진 radio는 한 그룹이 되어 하나만 선택할 수 있습니다. id는 각 요소를 식별하고 label과 연결하므로 서로 다르게 지정합니다.
 
-### 문제 2 — OX
+## 제출 정보
 
-`input`에 `required`를 지정하고 CSS의 `:focus`로 테두리 색을 바꿨다. 이때 필수 입력 여부는 CSS가 결정한다. (O / X)
-
-**정답: X**
-
-**해설:** 필수 입력 여부는 HTML의 required 속성이 결정합니다. CSS의 :focus는 입력 요소에 포커스가 있을 때의 시각적 표현을 담당합니다.
-
-## 제출 및 배포 상태
-
-- 로컬에 등록된 개인 저장소: https://github.com/hc-10103/OSS4
-- 로컬에 등록된 수업 저장소: https://github.com/2026-2-OSS/assign04-c02-22500819
-- 최종 제출 저장소 및 배포 URL: 확인 필요
-- 과제 본문은 Netlify, 제출 항목은 Vercel을 언급하므로 실제 제출에 사용할 서비스를 확인합니다.
-- Git commit/push, 배포 확인, LMS 제출 및 Google Form 제출 여부는 별도로 확인해야 합니다.
+- 최종 제출 GitHub Repository URL: (https://github.com/2026-2-OSS/assign04-c02-22500819)
+- 배포 URL: (https://oss-4-orcin.vercel.app/)

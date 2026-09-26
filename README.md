@@ -86,3 +86,4 @@ CSS에서는 class 이름만 붙이는 것으로 디자인이 적용되는 것�
 
 - 최종 제출 GitHub Repository URL: (https://github.com/2026-2-OSS/assign04-c02-22500819)
 - 배포 URL: (https://oss-4-orcin.vercel.app/)
+- clone coding URL (참고만 하고 자체제작) : https://getbootstrap.com/docs/5.2/examples/checkout/

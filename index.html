@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment 2-2 · HTML Form &amp; CSS</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background-color: #f3f6f3; color: #233b36; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; }
+        main { width: min(100% - 40px, 740px); margin: 80px auto; }
+        .eyebrow { color: #496b5d; font-size: 12px; font-weight: bold; letter-spacing: 2px; }
+        h1 { line-height: 1.25; font-size: clamp(30px, 6vw, 46px); letter-spacing: -1px; }
+        .pages { display: grid; gap: 16px; margin: 32px 0; }
+        a { display: block; padding: 24px; border: 1px solid #c8d6cd; border-radius: 12px; background-color: white; color: #233b36; text-decoration: none; }
+        a:hover { border-color: #28654e; background-color: #eaf2ed; }
+        a:focus-visible { outline: 3px solid #28654e; outline-offset: 4px; }
+        a strong { display: block; font-size: 20px; }
+        a span { color: #596b60; }
+        footer { margin-top: 40px; color: #596b60; font-size: 13px; }
+    </style>
 </head>
 <body>
-    
+    <main>
+        <p class="eyebrow">OPEN SOURCE STUDIO / ASSIGNMENT 2-2</p>
+        <h1>하나의 Form,<br>두 가지 모습.</h1>
+        <p>학생 프로필 등록을 주제로 HTML 입력 요소를 연습하고,<br>동일한 폼에 CSS를 적용해 화면의 변화를 비교합니다.</p>
+        <nav class="pages" aria-label="실습 페이지">
+            <a href="form1.html"><strong>01 · 기본 HTML →</strong><span>태그와 속성으로 구성한 학생 프로필 폼</span></a>
+            <a href="form1_css.html"><strong>02 · CSS 적용 →</strong><span>색상, 여백, 배치와 상태 스타일을 적용한 폼</span></a>
+        </nav>
+        <p>12개 입력 항목 · 필수 Form 요소 6종 · 모바일 화면 대응</p>
+        <footer>22500819 · HTML Form &amp; CSS<br>수업에서 허용한 자유주제로 제작했습니다. 입력 내용은 저장되지 않습니다.</footer>
+    </main>
 </body>
 </html>

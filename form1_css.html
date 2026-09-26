@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 프로필 등록 · CSS 적용</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; color: #233b36; background-color: #f3f6f3; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+        .container { width: min(100% - 40px, 820px); margin: 0 auto; }
+        nav { display: flex; flex-wrap: wrap; gap: 20px; padding: 24px 0; border-bottom: 1px solid #d6dfd9; }
+        a { color: #28654e; text-underline-offset: 4px; }
+        a:hover { color: #153c2c; }
+        header { padding: 42px 0 28px; }
+        .eyebrow { color: #496b5d; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+        h1 { margin: 8px 0; font-size: clamp(28px, 5vw, 38px); letter-spacing: -1px; }
+        header p { margin: 8px 0; }
+        form { padding: 32px; background-color: #fff; border: 1px solid #d6dfd9; border-radius: 16px; box-shadow: 0 8px 28px #243b3310; }
+        .form-note { margin: 0 0 28px; color: #59665f; font-size: 14px; }
+        fieldset { min-width: 0; margin: 0 0 28px; padding: 0; border: 0; }
+        legend { margin-bottom: 18px; padding: 0; font-size: 18px; font-weight: 700; }
+        .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+        .field { display: flex; flex-direction: column; gap: 8px; }
+        .field > label { font-size: 14px; font-weight: 600; }
+        input:not([type="radio"]):not([type="checkbox"]), select, textarea { width: 100%; min-width: 0; padding: 12px 14px; border: 1px solid #b7c8bc; border-radius: 8px; color: #233b36; background-color: #fff; font: inherit; }
+        input::placeholder, textarea::placeholder { color: #6d7972; }
+        textarea { resize: vertical; min-height: 120px; }
+        input:focus, select:focus, textarea:focus { outline: 3px solid #bedccc; outline-offset: 2px; border-color: #28654e; }
+        a:focus-visible, button:focus-visible { outline: 3px solid #78b998; outline-offset: 4px; }
+        input[type="radio"], input[type="checkbox"] { width: 17px; height: 17px; margin: 0; accent-color: #28654e; flex-shrink: 0; }
+        .choice-group { margin-bottom: 22px; }
+        .choice-group legend { margin-bottom: 10px; font-size: 14px; }
+        .choices { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+        .choices label, .confirmation label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        .hint { color: #637269; font-size: 12px; font-weight: 400; }
+        .choice-group .hint { margin-left: 8px; }
+        .confirmation { padding: 18px 0; border-top: 1px solid #e0e7e1; font-size: 14px; }
+        .actions { display: flex; gap: 12px; margin-top: 12px; }
+        button { padding: 12px 24px; border: 1px solid #28654e; border-radius: 8px; background-color: #28654e; color: white; font: inherit; font-weight: 600; cursor: pointer; }
+        button:hover { background-color: #1c4c3a; }
+        button.secondary { background-color: white; color: #28654e; border-color: #b7c8bc; }
+        button.secondary:hover { background-color: #eef4ef; }
+        #result { margin-bottom: 0; color: #28654e; font-weight: 600; }
+        #result:empty { display: none; }
+        footer { padding: 24px 0 36px; color: #637269; font-size: 12px; }
+        @media (max-width: 560px) {
+            .container { width: calc(100% - 28px); }
+            header { padding: 28px 0 20px; }
+            form { padding: 22px 18px; }
+            .fields { grid-template-columns: 1fr; }
+            .actions button { flex: 1; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav aria-label="페이지 이동"><a href="index.html">과제 홈</a> <a href="form1.html">기본 HTML 보기</a></nav>
+        <header>
+            <p class="eyebrow">OPEN SOURCE STUDIO / FORM PRACTICE</p>
+            <h1>학생 프로필 등록</h1>
+            <p>나의 기본 정보와 관심 분야를 소개해 보세요.</p>
+        </header>
+        <main>
+        <form id="profileForm">
+            <p class="form-note">* 표시 항목은 필수입니다. 실제 개인정보 대신 예시 값을 입력하세요.</p>
+            <fieldset>
+                <legend>01 기본 정보</legend>
+                <div class="fields">
+                    <div class="field">
+                        <label for="StudentName">이름 *</label>
+                        <input type="text" id="StudentName" name="studentName" placeholder="홍길동" maxlength="30" required>
+                    </div>
+                    <div class="field">
+                        <label for="StudentID">학번 *</label>
+                        <input type="text" id="StudentID" name="studentId" placeholder="22500000" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" title="학번은 숫자 8자리로 입력하세요." required>
+                    </div>
+                    <div class="field">
+                        <label for="phoneNumber">전화번호</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" title="010-1234-5678 형식으로 입력하세요.">
+                    </div>
+                    <div class="field">
+                        <label for="email">이메일 *</label>
+                        <input type="email" id="email" name="email" placeholder="student@example.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="birth_day">생년월일</label>
+                        <input type="date" id="birth_day" name="birthday">
+                    </div>
+                    <div class="field">
+                        <label for="major">전공 *</label>
+                        <select id="major" name="major" required>
+                            <option value="">전공을 선택하세요</option>
+                            <optgroup label="공학 계열">
+                                <option value="computer">컴퓨터공학</option>
+                                <option value="electronic">전자공학</option>
+                                <option value="mechanical">기계공학</option>
+                            </optgroup>
+                            <optgroup label="인문·사회 및 기타">
+                                <option value="business">경영학</option>
+                                <option value="communication">언론정보학</option>
+                                <option value="undecided">전공 미정</option>
+                                <option value="other">기타 전공</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="year">학년 *</label>
+                        <select id="year" name="year" required>
+                            <option value="">학년을 선택하세요</option>
+                            <option value="1">1학년</option>
+                            <option value="2">2학년</option>
+                            <option value="3">3학년</option>
+                            <option value="4">4학년 이상</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="startDate">스터디 참여 가능일</label>
+                        <input type="date" id="startDate" name="startDate">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>02 관심 분야와 소개</legend>
+                <fieldset class="choice-group">
+                    <legend>선호 연락 방법 *</legend>
+                    <div class="choices">
+                        <label for="contactEmail"><input type="radio" id="contactEmail" name="contactMethod" value="email" required> 이메일</label>
+                        <label for="contactPhone"><input type="radio" id="contactPhone" name="contactMethod" value="phone"> 전화</label>
+                        <label for="contactText"><input type="radio" id="contactText" name="contactMethod" value="text"> 문자</label>
+                    </div>
+                </fieldset>
+                <fieldset class="choice-group">
+                    <legend>관심 분야 <span class="hint">여러 개 선택 가능</span></legend>
+                    <div class="choices">
+                        <label for="interestWeb"><input type="checkbox" id="interestWeb" name="interests" value="web"> 웹 개발</label>
+                        <label for="interestAI"><input type="checkbox" id="interestAI" name="interests" value="ai"> 인공지능</label>
+                        <label for="interestApp"><input type="checkbox" id="interestApp" name="interests" value="app"> 앱 개발</label>
+                        <label for="interestDesign"><input type="checkbox" id="interestDesign" name="interests" value="design"> UI 디자인</label>
+                    </div>
+                </fieldset>
+                <div class="field">
+                    <label for="introduction">자기소개</label>
+                    <textarea id="introduction" name="introduction" rows="4" maxlength="300" placeholder="관심 분야나 이번 학기에 배우고 싶은 내용을 소개해 주세요." aria-describedby="introHint"></textarea>
+                    <small id="introHint" class="hint">최대 300자까지 입력할 수 있습니다.</small>
+                </div>
+            </fieldset>
+            <div class="confirmation">
+                <label for="confirmDemo"><input type="checkbox" id="confirmDemo" name="confirmDemo" value="yes" required> 학습용 폼이며 입력 내용이 저장되지 않는다는 점을 확인했습니다. *</label>
+            </div>
+            <div class="actions">
+                <button type="submit">입력 확인</button>
+                <button type="reset" class="secondary">초기화</button>
+            </div>
+            <p id="result" role="status" aria-live="polite"></p>
+        </form>
+        </main>
+        <footer>Assignment 2-2 · HTML Form &amp; CSS · 자유주제 학습용 페이지</footer>
+    </div>
+    <script>
+        // 브라우저 기본 유효성 검사를 통과한 뒤 확인 메시지만 표시합니다.
+        // 서버 전송이나 브라우저 저장소에 개인정보를 기록하지 않습니다.
+        const form = document.getElementById('profileForm');
+        const result = document.getElementById('result');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            result.textContent = '입력 형식을 확인했습니다. 학습용 폼이므로 내용은 저장되지 않습니다.';
+        });
+        form.addEventListener('reset', function () {
+            result.textContent = '';
+        });
+        form.addEventListener('input', function () {
+            result.textContent = '';
+        });
+    </script>
+</body>
+</html>
